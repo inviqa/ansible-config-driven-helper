@@ -1,0 +1,7 @@
+---
+  cloudflare_hostname: "{{ hostname }}"
+  cloudflare_record_content: "{{ ansible_ssh_host }}"
+  cloudflare_record_type: "A"
+  cloudflare_api_email: "{{ enc_cloudflare_api_email }}"
+  cloudflare_api_token: "{{ enc_cloudflare_api_token }}"
+...

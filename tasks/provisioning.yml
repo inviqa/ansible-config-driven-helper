@@ -1,0 +1,58 @@
+---
+- include: server-name.yml
+# 
+# - name: Add all servers that aren't localhost to provision group
+#   group_by:
+#     key: 'provision'
+
+- name: Create hosting provider groups
+  group_by:
+    key: "{{ provider | replace(' ', '-') | lower }}"
+  when: provider is defined
+
+- name: Create hosting provider account groups
+  group_by:
+    key: "{{ provider_account }}"
+  when: provider_account is defined
+
+- name: Create pipeline/production groups
+  group_by:
+    key: "{{ server_environment }}"
+  when: server_environment is defined
+
+- name: Split into hosts for those that should have jumpcloud
+  group_by:
+    key: 'jumpcloud'
+  when: jumpcloud_enable is defined and jumpcloud_enable
+  tags: jumpcloud
+
+- name: Split into hosts for those that should have ServerDensity
+  group_by:
+    key: 'server-density'
+  when: serverdensity_enable is defined and serverdensity_enable
+  tags: serverdensity
+
+- name: Split into hosts for those that should be on CloudFlare
+  group_by:
+    key: 'cloudflare'
+  when: cloudflare_enable is defined and cloudflare_enable
+  tags: cloudflare
+
+- name: Split into hosts for those that should be on ServerPilot
+  group_by:
+    key: 'serverpilot'
+  when: serverpilot_enable is defined and serverpilot_enable
+  tags: serverpilot
+
+- name: Split into hosts for those that should have dome9
+  group_by:
+    key: 'dome9'
+  when: dome9_enable is defined and dome9_enable
+  tags: dome9
+
+- name: Split into hosts for those that should be on Qualysguard
+  group_by:
+    key: 'qualysguard'
+  when: qualysguard_enable is defined and qualysguard_enable
+  tags: qualysguard
+...

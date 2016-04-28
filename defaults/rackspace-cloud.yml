@@ -1,0 +1,76 @@
+---
+#rackspace_provisioning_public_key:  'ssh-rsa xxx'
+#rackspace_cloud_ssh_key_name:       'inviqa_ansible'
+rackspace_cloud_auth_endpoint:      'https://identity.api.rackspacecloud.com/v2.0/'
+rackspace_cloud_autoincrement:      true
+rackspace_cloud_count:              1
+rackspace_cloud_count_offset:       1
+rackspace_cloud_disk_config:        manual
+rackspace_cloud_identity_type:      rackspace
+rackspace_cloud_region_id:          DFW
+
+rackspace_images:
+  centos6:
+    pv:       '619fe497-803b-4a0e-bf8a-fd4e2970b4c1'
+    pvhvm:    '6b025595-a83b-436b-b37d-d5b212b5ddfc'
+  rhel5:
+    pv:       'a8552c7e-ebc2-48c0-ad00-be56fb29b302'
+  rhel6:
+    pv:       'a1555bbc-c779-4b85-a6ec-5f53b7b924be'
+    pvhvm:    '14369199-08bf-4ac0-8bc0-d9e9881bdad4'
+  rhel7:
+    pvhvm:    'ff28d854-3edd-4bad-9897-e457e8b1e849'
+  ubuntu1204:
+    pv:       '1e974b12-95f5-4e4f-bc0d-203f1e34ad65'
+    pvhvm:    'ca9ab240-5fe5-43a4-b936-7dc5009cc67f'
+  ubuntu1404:
+    pv:       'adb78bf4-81ae-4dce-a417-8eb2b7f7f0c3'
+    pvhvm:    '6f29d6a6-9972-4ae0-aa80-040fa2d6a9cf'
+  ubuntu:
+    pvhvm:    'c1a96aed-e867-47ef-9f38-0be158eb98b8'
+  debian7:
+    pvhvm:    'e3ee670e-61eb-4f00-8e18-eec91cc37481'
+  debian8:
+    pvhvm:    '78d48afe-a94e-4fbe-9c39-ff382479d0a9'
+
+
+rackspace_flavors:
+  512_standard:
+    id: 2
+    name: 512MB Standard Instance
+  1gb_standard:
+    id: 3
+    name: 1GB Standard Instance
+  2gb_standard:
+    id: 4
+    name: 2GB Standard Instance
+  4gb_standard:
+    id: 5
+    name: 4GB Standard Instance
+  8gb_standard:
+    id: 8
+    name: 8GB Standard Instance
+  15gb_standrd:
+    id: 7
+    name: 15GB Standard Instance
+  30gb_standrd:
+    id: 8
+    name: 30GB Standard Instance
+  performance1_1:
+    id:  performance1-1
+    name: 1 GB Performance
+  performance1_2:
+    id:  performance1-2
+    name: 2 GB Performance
+  performance1_4:
+    id:  performance1-4
+    name: 4 GB Performance
+  performance1_8:
+    id:  performance1-8
+    name: 8 GB Performance
+
+
+rackspace_magento_pipeline: &magento_pipeline
+  image: "{{ rackspace_images.centos6.pvhvm }}"
+  flavor: "{{ rackspace_flavors.performance1_4 }}"
+...
