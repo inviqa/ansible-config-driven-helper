@@ -6,6 +6,11 @@
     ansible_ssh_host: 127.0.0.1
     ansible_connection: local
     groups: localhost
+  name: "{{ inventory_hostname }}"
+
+- hosts: all
+  vars:
+    name: "{{ inventory_hostname }}"
 
 - include: provisionig.yml
 
