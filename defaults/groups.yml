@@ -1,0 +1,25 @@
+inviqa_group_ids:
+  support:              '2000'
+  support_ooh:          '2001'
+  qualysguard:          '2002'
+
+  production_admin:     '2011'
+  production_deploy:    '2012'
+  production_provision: '2013'
+
+  pipeline_admin:       '2021'
+  pipeline_deploy:      '2022'
+  pipeline_provision:   '2023'
+
+inviqa_alternate_group_ids:
+  support:              '3000'
+  support_ooh:          '3001'
+  qualysguard:          '3002'
+
+  production_admin:     '3011'
+  production_deploy:    '3012'
+  production_provision: '3013'
+
+  pipeline_admin:       '3021'
+  pipeline_deploy:      '3022'
+  pipeline_provision:   '3023'

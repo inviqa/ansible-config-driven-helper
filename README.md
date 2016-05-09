@@ -33,7 +33,24 @@ makes exception the "enc_" attributes that need to be defined on a vault file
   cloudflare_record_type: "A" # or any other DNS record type
 ...
 ```
+## GROUPS
+Most of the user groups needed are generally managed via JumpCloud
+in case you need to create groups not managed via JC or simply don't want to use JC
+you can create groups defining the `inviqa_support_groups` and `user_groups_environment` attributes
+```
+inviqa_support_groups:
+  support:
+    gid: "{{ inviqa_group_ids.support }}"
+    name: inviqasupport
+  support_ooh:
+    gid: "{{ inviqa_group_ids.support_ooh }}"
+    name: inviqaoohsupport
 
+user_groups_environment:
+- "{{ inviqa_support_groups.support }}"
+- "{{ inviqa_support_groups.support_ooh }}"
+
+```
 ## SUDOERS attributes to be se
 Define `sudoers_group_gids` per group or per host.
 It's possible to choose `inviqa_group_ids` or `inviqa_alternate_group_ids` and `pipeline_x` or `prouction_x`.
