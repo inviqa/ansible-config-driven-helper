@@ -1,3 +1,17 @@
+## Digital Ocean attributes that can be set
+All the attributes have a default value set
+to override the default values add the following attributes as a group_var or host_var
+```
+  digital_ocean_api_token:          
+  digital_ocean_size_id:            
+  digital_ocean_image_id:           
+  digital_ocean_name:               
+  digital_ocean_region_id:          
+  digital_ocean_unique_name:        
+  digital_ocean_backups_enabled:    
+  digital_ocean_private_networking:
+  digital_ocean_ssh_key_ids:        
+```
 ## CloudFlare attributes to be set
 
 DEFINING cloudflare_zone IS ENOUGH TO CREATE A DNS RECORD
@@ -25,10 +39,10 @@ Define `sudoers_group_gids` per group or per host.
 It's possible to choose `inviqa_group_ids` or `inviqa_alternate_group_ids` and `pipeline_x` or `prouction_x`.
 The default is set to use PIPELINE values.
 ```
-sudoers_group_gids:
-  inviqa_support:     "{{ inviqa_group_ids.support }}"
-  inviqa_support_ooh: "{{ inviqa_group_ids.support_ooh }}"
-  admin:              "{{ inviqa_group_ids.pipeline_admin }}"
-  deploy:             "{{ inviqa_group_ids.pipeline_deploy }}"
-  provision:          "{{ inviqa_group_ids.pipeline_provision }}"
+  sudoers_group_gids:
+    inviqa_support:     "{{ inviqa_group_ids.support }}"
+    inviqa_support_ooh: "{{ inviqa_group_ids.support_ooh }}"
+    admin:              "{{ inviqa_group_ids.pipeline_admin }}"
+    deploy:             "{{ inviqa_group_ids.pipeline_deploy }}"
+    provision:          "{{ inviqa_group_ids.pipeline_provision }}"
 ```

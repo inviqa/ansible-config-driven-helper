@@ -1,7 +1,7 @@
 ---
-digital_ocean_api_token:         "{{ enc_do_v2_api_key }}"
-digital_ocean_size_id:            "{{ do_size_id | default('63') }}"
-digital_ocean_image_id:           "{{ do_image_id | default('6372321') }}"
+digital_ocean_api_token:          "{{ enc_do_v2_api_key }}"
+digital_ocean_size_id:            "{{ do_size_id | default('512mb') }}"
+digital_ocean_image_id:           "{{ do_image_id | default('16040476') }}"
 digital_ocean_name:               "{{ hostname }}"
 digital_ocean_region_id:          "{{ do_region_id | default('lon1') }}"
 digital_ocean_unique_name:        "{{ do_unique_name | default('yes') }}"
