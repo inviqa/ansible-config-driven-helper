@@ -1,4 +1,4 @@
-## CloudFlare attributes to be Set
+## CloudFlare attributes to be set
 
 DEFINING cloudflare_zone IS ENOUGH TO CREATE A DNS RECORD
 (all other parameters have a default that you can override)
@@ -18,4 +18,17 @@ makes exception the "enc_" attributes that need to be defined on a vault file
   cloudflare_record_content: "{{ ansible_ssh_host }}" # IP address or FQDN
   cloudflare_record_type: "A" # or any other DNS record type
 ...
+```
+
+## SUDOERS attributes to be se
+Define `sudoers_group_gids` per group or per host.
+It's possible to choose `inviqa_group_ids` or `inviqa_alternate_group_ids` and `pipeline_x` or `prouction_x`.
+The default is set to use PIPELINE values.
+```
+sudoers_group_gids:
+  inviqa_support:     "{{ inviqa_group_ids.support }}"
+  inviqa_support_ooh: "{{ inviqa_group_ids.support_ooh }}"
+  admin:              "{{ inviqa_group_ids.pipeline_admin }}"
+  deploy:             "{{ inviqa_group_ids.pipeline_deploy }}"
+  provision:          "{{ inviqa_group_ids.pipeline_provision }}"
 ```
