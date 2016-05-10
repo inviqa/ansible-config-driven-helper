@@ -1,6 +1,6 @@
 ---
 remote_user: root
-gather_facts: false
+gather_facts: true
 
 hostname_name: "{{ hostname }}"
 hostname_kernelname: "{{ hostname_name | mandatory }}"

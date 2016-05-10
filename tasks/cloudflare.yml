@@ -1,4 +1,5 @@
 ---
+- include_vars: cloudflare.yml
 - name: Delete any previous DNS record in CloudFlare associated to {{ cloudflare_hostname }}
   cloudflare_domain:
     state:  absent
