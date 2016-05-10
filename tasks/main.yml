@@ -15,9 +15,6 @@
 #   roles:
 #     - { role: provisioning }
 
-# - include: do.yml
-# - include: rax.yml
-# - include: aws.yml
 - include: digital-ocean.yml
   when: provider is defined and provider is digital-ocean
 
@@ -38,7 +35,11 @@
 
 - include: hostname.yml
 - include: groups.yml
+
 - include: cloudflare.yml
   when: cloudflare_zone is defined
+
+- include: sudoers.yml
+  when: update_sudoers and sudoers_groups is defined
 
 ...
