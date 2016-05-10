@@ -1,5 +1,6 @@
 ---
 - include: server-name.yml
+
 - name:     Change sysctl to ensure the hostname is also the same
   sysctl:
     name:         'kernel.hostname'

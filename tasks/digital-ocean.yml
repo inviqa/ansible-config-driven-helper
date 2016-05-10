@@ -1,6 +1,4 @@
 ---
-- include: server-name.yml
-
 - name: Create new Droplet.
   digital_ocean:
     state: present

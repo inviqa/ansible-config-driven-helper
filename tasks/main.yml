@@ -18,6 +18,14 @@
 # - include: do.yml
 # - include: rax.yml
 # - include: aws.yml
+- include: digital-ocean.yml
+  when: provider is defined and provider is digital-ocean
+
+- include: rackspace-cloud.yml
+  when: provider is defined and provider is rackspace-cloud
+
+- include: amazon-ec2.yml
+  when: provider is defined and provider is amazon-ec2
 
 - name: Wait for port 22 to become available.
   local_action: >
@@ -30,12 +38,7 @@
 
 - include: hostname.yml
 - include: groups.yml
-
-# - hosts: provision
-#   roles:
-#   - { role: security }
-#   - { role: monitoring }
-#   when: hostname not localhost
-
+- include: cloudflare.yml
+  when: cloudflare_zone is defined
 
 ...

@@ -14,7 +14,7 @@ to override the default values add the following attributes as a group_var or ho
 ```
 ## CloudFlare attributes to be set
 
-DEFINING cloudflare_zone IS ENOUGH TO CREATE A DNS RECORD
+DEFINING cloudflare_zone IS _NECESSARY_ & _ENOUGH_ TO CREATE A DNS RECORD
 (all other parameters have a default that you can override)
 makes exception the "enc_" attributes that need to be defined on a vault file
 ```
