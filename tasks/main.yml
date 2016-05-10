@@ -8,11 +8,7 @@
     groups: localhost
   name: "{{ inventory_hostname }}"
 
-- hosts: all
-  vars:
-    name: "{{ inventory_hostname }}"
-
-- include: provisionig.yml
+#- include: server-name.yml
 
 # - hosts: all:!localhost
 #   gather_facts: false
@@ -41,34 +37,5 @@
 #   - { role: monitoring }
 #   when: hostname not localhost
 
-- hosts: jumpcloud
-  roles:
-  - { role: inviqa.jumpcloud }
-
-- hosts: server-density
-  roles:
-  - { role: server-density }
-
-- hosts: qualysguard
-  connection: local
-  gather_facts: false
-  roles:
-  - { role: qualysguard }
-
-#- hosts: dome9
-#  roles:
-#    - { role: dome9 }
-
-- hosts: serverpilot
-  connection: local
-  gather_facts: false
-  roles:
-    - { role: serverpilot }
-
-- hosts: cloudflare
-  connection: local
-  gather_facts: false
-  roles:
-    - { role: cloudflare }
 
 ...
