@@ -35,8 +35,9 @@ makes exception the "enc_" attributes that need to be defined on a vault file
 ```
 ## GROUPS
 Most of the user groups needed are generally managed via JumpCloud
-in case you need to create groups not managed via JC or simply don't want to use JC
-you can create groups defining the `inviqa_support_groups` and `user_groups_environment` attributes
+In case you need to create groups not managed via JC (or simply don't want to use JC)
+you need to define a `user_groups_environment` where you have to list elements of
+an attributes array as `inviqa_support_groups` in the example below.
 ```
 inviqa_support_groups:
   support:

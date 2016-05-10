@@ -23,3 +23,19 @@ inviqa_alternate_group_ids:
   pipeline_admin:       '3021'
   pipeline_deploy:      '3022'
   pipeline_provision:   '3023'
+
+inviqa_support_groups:
+  support:
+    gid: "{{ inviqa_group_ids.support }}"
+    name: inviqasupport
+  support_ooh:
+    gid: "{{ inviqa_group_ids.support_ooh }}"
+    name: inviqaoohsupport
+
+inviqa_support_alternate_groups:
+  support:
+    gid: "{{ inviqa_alternate_group_ids.support }}"
+    name: inviqasupport
+  support_ooh:
+    gid: "{{ inviqa_alternate_group_ids.support_ooh }}"
+    name: inviqaoohsupport
