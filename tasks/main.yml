@@ -1,37 +1,10 @@
 ---
-- name: Set up localhost group so we can use it to exclude later
-  add_host:
-    hostname: localhost
-    ansible_python_interpreter: "python"
-    ansible_ssh_host: 127.0.0.1
-    ansible_connection: local
-    groups: localhost
-  name: "{{ inventory_hostname }}"
-
 #- include: server-name.yml
 
 # - hosts: all:!localhost
 #   gather_facts: false
 #   roles:
 #     - { role: provisioning }
-
-- include: digital-ocean.yml
-  when: provider is defined and provider is digital-ocean
-
-- include: rackspace-cloud.yml
-  when: provider is defined and provider is rackspace-cloud
-
-- include: amazon-ec2.yml
-  when: provider is defined and provider is amazon-ec2
-
-- name: Wait for port 22 to become available.
-  local_action: >
-    wait_for
-    port=22
-    host="{{ ansible_ssh_host | default(inventory_hostname) }}"
-    timeout=300
-    delay=30
-  when: host_provisioned is defined and hostname not localhost
 
 - include: hostname.yml
 - include: groups.yml
