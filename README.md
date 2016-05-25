@@ -38,7 +38,7 @@ user_groups_environment:
 - "{{ inviqa_support_groups.support_ooh }}"
 
 ```
-## SUDOERS attributes to be se
+## SUDOERS attributes to be set
 Define `sudoers_group_gids` per group or per host. They need to be GID values (not names).
 Default attributes values that can be referenced are defined in `inviqa_group_ids` or `inviqa_alternate_group_ids` and `support_`, `pipeline_` or `production_`.
 The default is set to use PIPELINE values.
