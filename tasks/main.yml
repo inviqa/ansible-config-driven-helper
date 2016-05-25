@@ -13,6 +13,6 @@
   when: cloudflare_zone is defined
 
 - include: sudoers.yml
-  when: update_sudoers and sudoers_groups is defined
+  when: update_sudoers is defined
 
 ...
