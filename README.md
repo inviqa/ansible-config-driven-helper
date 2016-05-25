@@ -1,17 +1,3 @@
-## Digital Ocean attributes that can be set
-All the attributes have a default value set
-to override the default values add the following attributes as a group_var or host_var
-```
-  digital_ocean_api_token:          
-  digital_ocean_size_id:            
-  digital_ocean_image_id:           
-  digital_ocean_name:               
-  digital_ocean_region_id:          
-  digital_ocean_unique_name:        
-  digital_ocean_backups_enabled:    
-  digital_ocean_private_networking:
-  digital_ocean_ssh_key_ids:        
-```
 ## CloudFlare attributes to be set
 
 DEFINING cloudflare_zone IS _NECESSARY_ & _ENOUGH_ TO CREATE A DNS RECORD
