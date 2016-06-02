@@ -1,3 +1,13 @@
+# Ansible Config Driven Helper
+This is an Ansible role that provide configurations tasks and default values for
+other Ansible roles which only provide Installation of a particular service or application.
+
+Currently providing support for:
+- Hostname configuration
+- Environment Groups (system groups)
+- SUDOERS configuration files
+- CloudFlare configuration
+
 ## CloudFlare attributes to be set
 
 DEFINING cloudflare_zone IS _NECESSARY_ & _ENOUGH_ TO CREATE A DNS RECORD
@@ -50,3 +60,19 @@ The default is set to use PIPELINE values.
     deploy:             "{{ inviqa_group_ids.pipeline_deploy }}"
     provision:          "{{ inviqa_group_ids.pipeline_provision }}"
 ```
+
+## License
+[MIT][license]
+
+## Author Information
+------------------
+Author Marco Massari Calderone - Inviqa UK Ltd
+
+Based on Barney Hanlon's work on the original [ansible-provisioning][ansible-provisioning] project for [Inviqa][inviqa]
+
+[github] https://github.com/inviqa/ansible-config-driven-helper "Github location of this role"
+[ansible-provisioning]]: https://github.com/inviqa/ansible-provisioning "Inviqa's Ansible Provisioning tool"
+
+[inviqa]: https://www.inviqa.com "Inviqa UK Ltd"
+
+[license]: https://raw.githubusercontent.com/inviqa/ansible-jumpcloud/master/LICENSE
