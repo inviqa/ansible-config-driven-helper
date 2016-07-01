@@ -8,13 +8,9 @@
 
 - name: Process Hostname configuration
   include: hostname.yml
-  
+
 - name: Process Environement Groups configurations
   include: groups.yml
-
-- name: Process CloudFlare configurations
-  include: cloudflare.yml
-  when: cloudflare_zone is defined
 
 - name: Process Sudoers configurations
   include: sudoers.yml

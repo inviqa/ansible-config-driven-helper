@@ -31,6 +31,5 @@ galaxy_info:
 
 dependencies:
   - ajsalminen.hosts
-  - DrMegahertz.cloudflare
   - Rackor3000.sudo
 ...
