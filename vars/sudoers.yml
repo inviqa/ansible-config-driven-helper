@@ -37,18 +37,18 @@ sudoers_group_gids:
 
 sudoers_groups:
   - gid: "{{ sudoers_group_gids.inviqa_support | mandatory }}"
-    filename: inviqa-support
+    filename: zza_inviqa-support
     permissions: 'ALL=(ALL:ALL) PASSWD: ALL'
   - gid: "{{ sudoers_group_gids.inviqa_support_ooh | mandatory }}"
-    filename: inviqa-support-ooh
+    filename: zza_inviqa-support-ooh
     permissions: 'ALL=(ALL:ALL) PASSWD: ALL'
   - gid: "{{ sudoers_group_gids.admin | mandatory }}"
-    filename: inviqa-admin
+    filename: zzz_inviqa-admin
     permissions: 'ALL=(ALL:ALL) PASSWD: ALL'
   - gid: "{{ sudoers_group_gids.deploy | mandatory }}"
-    filename: inviqa-deploy
+    filename: zzz_inviqa-deploy
     permissions: 'ALL=(deploy) NOPASSWD: ALL'
   - gid: "{{ sudoers_group_gids.provision | mandatory }}"
-    filename: inviqa-provision
+    filename: zzz_inviqa-provision
     permissions: 'ALL=(root) NOPASSWD: ALL'
 ...
