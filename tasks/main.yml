@@ -14,6 +14,6 @@
 
 - name: Process Sudoers configurations
   include: sudoers.yml
-  when: update_sudoers is defined
+  when: update_sudoers is defined and update_sudoers
 
 ...
