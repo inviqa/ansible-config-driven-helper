@@ -8,5 +8,5 @@
     group='root'
     mode='0440'
     validate='visudo -cf %s'
-  with_items: sudoers_groups
+  with_items: "{{sudoers_groups}}"
 ...
