@@ -1,5 +1,7 @@
 ---
 - include_vars: sudoers.yml
+  when: "update_sudoers is defined and update_sudoers"
+
 - name: Add the groups to sudoers.d
   template: >
     src='sudo-group.j2'
@@ -8,5 +10,6 @@
     group='root'
     mode='0440'
     validate='visudo -cf %s'
-  with_items: "{{sudoers_groups}}"
+  when: "update_sudoers is defined and update_sudoers"
+  with_items: "{{sudoers_groups|default}}"
 ...

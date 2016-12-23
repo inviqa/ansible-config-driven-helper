@@ -6,14 +6,11 @@
 #   roles:
 #     - { role: provisioning }
 
-- name: Process Hostname configuration
-  include: hostname.yml
 
-- name: Process Environement Groups configurations
-  include: groups.yml
+- include: hostname.yml
 
-- name: Process Sudoers configurations
-  include: sudoers.yml
-  when: update_sudoers is defined and update_sudoers
+- include: groups.yml
+
+- include: sudoers.yml
 
 ...
