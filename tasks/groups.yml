@@ -1,7 +1,7 @@
 ---
 - include_vars: groups.yml
   when: user_groups_environment is defined
-  
+
 - name: Create the groups for the environment
   group:
     name:   "{{ item.name }}"
@@ -9,5 +9,6 @@
     state:  present
   when: user_groups_environment is defined
   with_items: "{{user_groups_environment|default}}"
+  become: true
 
 ...

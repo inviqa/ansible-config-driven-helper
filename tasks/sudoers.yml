@@ -12,4 +12,6 @@
     validate='visudo -cf %s'
   when: "update_sudoers is defined and update_sudoers"
   with_items: "{{sudoers_groups|default}}"
+  become: true
+
 ...
