@@ -1,17 +1,4 @@
 inviqa_group_ids:
-  support:              '2000'
-  support_ooh:          '2001'
-  qualysguard:          '2002'
-
-  production_admin:     '2011'
-  production_deploy:    '2012'
-  production_provision: '2013'
-
-  pipeline_admin:       '2021'
-  pipeline_deploy:      '2022'
-  pipeline_provision:   '2023'
-
-inviqa_alternate_group_ids:
   support:              '3000'
   support_ooh:          '3001'
   qualysguard:          '3002'
@@ -30,12 +17,4 @@ inviqa_support_groups:
     name: inviqasupport
   support_ooh:
     gid: "{{ inviqa_group_ids.support_ooh }}"
-    name: inviqaoohsupport
-
-inviqa_support_alternate_groups:
-  support:
-    gid: "{{ inviqa_alternate_group_ids.support }}"
-    name: inviqasupport
-  support_ooh:
-    gid: "{{ inviqa_alternate_group_ids.support_ooh }}"
     name: inviqaoohsupport
