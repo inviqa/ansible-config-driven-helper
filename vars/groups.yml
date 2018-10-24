@@ -11,6 +11,8 @@ inviqa_group_ids:
   pipeline_deploy:      '3022'
   pipeline_provision:   '3023'
 
+  gold_bau_team:        '3060'
+
 inviqa_support_groups:
   support:
     gid: "{{ inviqa_group_ids.support }}"
