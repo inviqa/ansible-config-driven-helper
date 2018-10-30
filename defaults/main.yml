@@ -1,5 +1,14 @@
----
-ansible_managed: "Managed by Inviqa: {file} modified on %Y-%m-%d %H:%M:%S by {uid} on {host}"
+remote_user: root
+gather_facts: true
+
+hostname_name: "{{ hostname }}"
+hostname_kernelname: "{{ hostname_name | mandatory }}"
+hostname_fqdn:
+hosts_default_ipv4_hosts:
+  address: "{{ ansible_default_ipv4.address }}"
+  hostnames:
+    - "{{ hostname }}"
+    - "{{ hostname_fqdn }}"
 
 inviqa_group_ids:
   support:              '3000'
@@ -14,16 +23,31 @@ inviqa_group_ids:
   pipeline_deploy:      '3022'
   pipeline_provision:   '3023'
 
-  gold_bau_team:        '3060'
-
-#the default is set to use PIPELINE values
 sudoers_group_gids:
   inviqa_support:     "{{ inviqa_group_ids.support }}"
   inviqa_support_ooh: "{{ inviqa_group_ids.support_ooh }}"
   admin:              "{{ inviqa_group_ids.pipeline_admin }}"
   deploy:             "{{ inviqa_group_ids.pipeline_deploy }}"
   provision:          "{{ inviqa_group_ids.pipeline_provision }}"
-  gold_bau_team:      "{{ inviqa_group_ids.gold_bau_team }}"
+
+inviqa_support_groups:
+  support:
+    gid: "{{ inviqa_group_ids.support }}"
+    name: inviqasupport
+  support_ooh:
+    gid: "{{ inviqa_group_ids.support_ooh }}"
+    name: inviqaoohsupport
+
+inviqa_support_users:
+  - name: inviqa-support
+    group: "{{ inviqa_support_groups.inviqa_support }}"
+    authorized:
+      - files/support_rsa.pub
+
+  - name: inviqa-ooh-support
+    group: "{{ inviqa_support_groups.inviqa_ooh_support }}"
+    authorized:
+      - files/support_rsa.pub
 
 sudoers_groups:
   - gid: "{{ sudoers_group_gids.inviqa_support | mandatory }}"
@@ -41,10 +65,3 @@ sudoers_groups:
   - gid: "{{ sudoers_group_gids.provision | mandatory }}"
     filename: zzz_inviqa-provision
     permissions: 'ALL=(root) NOPASSWD: ALL'
-  - gid: "{{ sudoers_group_gids.gold_bau_team | mandatory }}"
-    filename: zzz_inviqa-goldbau-root
-    permissions: 'ALL=(root) NOPASSWD: ALL'
-  - gid: "{{ sudoers_group_gids.gold_bau_team | mandatory }}"
-    filename: zzz_inviqa-goldbau-deploy
-    permissions: 'ALL=(deploy) NOPASSWD: ALL'
-...

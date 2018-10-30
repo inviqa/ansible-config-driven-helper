@@ -1,16 +1,7 @@
 ---
-#- include: server-name.yml
-
-# - hosts: all:!localhost
-#   gather_facts: false
-#   roles:
-#     - { role: provisioning }
-
-
 - include: hostname.yml
 
 - include: groups.yml
 
 - include: sudoers.yml
-
 ...
