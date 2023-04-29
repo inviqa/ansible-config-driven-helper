@@ -5,7 +5,7 @@
   sysctl:
     name:         'kernel.hostname'
     state:        'present'
-    value:        "{{ hostname_kernelname | mandatory }}"
+    value:        "{{hostname_kernelname | mandatory}}"
     reload:       yes
     ignoreerrors: yes
   become: true
