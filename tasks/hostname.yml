@@ -1,11 +1,11 @@
 ---
 - include: server-name.yml
 
-- name:     Change sysctl to ensure the hostname is also the same
+- name: Change sysctl to ensure the hostname is also the same
   sysctl:
-    name:         'kernel.hostname'
-    state:        'present'
-    value:        "{{hostname_kernelname | mandatory}}"
-    reload:       yes
-    ignoreerrors: yes
+    name: 'kernel.hostname'
+    state: 'present'
+    value: "{{hostname_kernelname | mandatory}}"
+    reload: true
+    ignoreerrors: true
 ...

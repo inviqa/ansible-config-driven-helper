@@ -21,7 +21,7 @@ makes exception the "enc_" attributes that need to be defined on a vault file
 # define this in a group_var belonging to the organisation
 # define enc_* in a vault
   cloudflare_api_email: "{{enc_cloudflare_api_email}}"
-  cloudflare_api_token: "{{enc_cloudflare_api_email }}"
+  cloudflare_api_token: "{{enc_cloudflare_api_email}}"
 
 # define this in the host_vars
   cloudflare_hostname: "{{hostname}}"
