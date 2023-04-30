@@ -6,6 +6,5 @@
     state:  present
   when: user_groups_environment is defined
   with_items: "{{user_groups_environment|default}}"
-  become: true
-
 ...
+

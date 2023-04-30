@@ -8,5 +8,4 @@
     value:        "{{hostname_kernelname | mandatory}}"
     reload:       yes
     ignoreerrors: yes
-  become: true
 ...
