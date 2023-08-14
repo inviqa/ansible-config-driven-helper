@@ -1,7 +1,5 @@
 ---
 - include: hostname.yml
-
 - include: groups.yml
-
 - include: sudoers.yml
 ...

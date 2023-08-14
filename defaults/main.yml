@@ -1,67 +1,67 @@
 remote_user: root
 gather_facts: true
 
-hostname_name: "{{ hostname }}"
-hostname_kernelname: "{{ hostname_name | mandatory }}"
+hostname_name: "{{hostname}}"
+hostname_kernelname: "{{hostname_name | mandatory}}"
 hostname_fqdn:
 hosts_default_ipv4_hosts:
-  address: "{{ ansible_default_ipv4.address }}"
+  address: "{{ansible_default_ipv4.address}}"
   hostnames:
-    - "{{ hostname }}"
-    - "{{ hostname_fqdn }}"
+    - "{{hostname}}"
+    - "{{hostname_fqdn}}"
 
 inviqa_group_ids:
-  support:              '3000'
-  support_ooh:          '3001'
-  qualysguard:          '3002'
+  support: '3000'
+  support_ooh: '3001'
+  qualysguard: '3002'
 
-  production_admin:     '3011'
-  production_deploy:    '3012'
+  production_admin: '3011'
+  production_deploy: '3012'
   production_provision: '3013'
 
-  pipeline_admin:       '3021'
-  pipeline_deploy:      '3022'
-  pipeline_provision:   '3023'
+  pipeline_admin: '3021'
+  pipeline_deploy: '3022'
+  pipeline_provision: '3023'
 
 sudoers_group_gids:
-  inviqa_support:     "{{ inviqa_group_ids.support }}"
-  inviqa_support_ooh: "{{ inviqa_group_ids.support_ooh }}"
-  admin:              "{{ inviqa_group_ids.pipeline_admin }}"
-  deploy:             "{{ inviqa_group_ids.pipeline_deploy }}"
-  provision:          "{{ inviqa_group_ids.pipeline_provision }}"
+  inviqa_support: "{{inviqa_group_ids.support}}"
+  inviqa_support_ooh: "{{inviqa_group_ids.support_ooh}}"
+  admin: "{{inviqa_group_ids.pipeline_admin}}"
+  deploy: "{{inviqa_group_ids.pipeline_deploy}}"
+  provision: "{{inviqa_group_ids.pipeline_provision}}"
 
 inviqa_support_groups:
   support:
-    gid: "{{ inviqa_group_ids.support }}"
+    gid: "{{inviqa_group_ids.support}}"
     name: inviqasupport
   support_ooh:
-    gid: "{{ inviqa_group_ids.support_ooh }}"
+    gid: "{{inviqa_group_ids.support_ooh}}"
     name: inviqaoohsupport
 
 inviqa_support_users:
   - name: inviqa-support
-    group: "{{ inviqa_support_groups.inviqa_support }}"
+    group: "{{inviqa_support_groups.inviqa_support}}"
     authorized:
       - files/support_rsa.pub
 
   - name: inviqa-ooh-support
-    group: "{{ inviqa_support_groups.inviqa_ooh_support }}"
+    group: "{{inviqa_support_groups.inviqa_ooh_support}}"
     authorized:
       - files/support_rsa.pub
 
 sudoers_groups:
-  - gid: "{{ sudoers_group_gids.inviqa_support | mandatory }}"
+  - gid: "{{sudoers_group_gids.inviqa_support | mandatory}}"
     filename: zza_inviqa-support
     permissions: 'ALL=(ALL:ALL) PASSWD: ALL'
-  - gid: "{{ sudoers_group_gids.inviqa_support_ooh | mandatory }}"
+  - gid: "{{sudoers_group_gids.inviqa_support_ooh | mandatory}}"
     filename: zza_inviqa-support-ooh
     permissions: 'ALL=(ALL:ALL) PASSWD: ALL'
-  - gid: "{{ sudoers_group_gids.admin | mandatory }}"
+  - gid: "{{sudoers_group_gids.admin | mandatory}}"
     filename: zzz_inviqa-admin
     permissions: 'ALL=(ALL:ALL) PASSWD: ALL'
-  - gid: "{{ sudoers_group_gids.deploy | mandatory }}"
+  - gid: "{{sudoers_group_gids.deploy | mandatory}}"
     filename: zzz_inviqa-deploy
     permissions: 'ALL=(deploy) NOPASSWD: ALL'
-  - gid: "{{ sudoers_group_gids.provision | mandatory }}"
+  - gid: "{{sudoers_group_gids.provision | mandatory}}"
     filename: zzz_inviqa-provision
     permissions: 'ALL=(root) NOPASSWD: ALL'
