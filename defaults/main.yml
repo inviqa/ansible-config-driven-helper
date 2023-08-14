@@ -11,24 +11,24 @@ hosts_default_ipv4_hosts:
     - "{{hostname_fqdn}}"
 
 inviqa_group_ids:
-  support:              '3000'
-  support_ooh:          '3001'
-  qualysguard:          '3002'
+  support: '3000'
+  support_ooh: '3001'
+  qualysguard: '3002'
 
-  production_admin:     '3011'
-  production_deploy:    '3012'
+  production_admin: '3011'
+  production_deploy: '3012'
   production_provision: '3013'
 
-  pipeline_admin:       '3021'
-  pipeline_deploy:      '3022'
-  pipeline_provision:   '3023'
+  pipeline_admin: '3021'
+  pipeline_deploy: '3022'
+  pipeline_provision: '3023'
 
 sudoers_group_gids:
-  inviqa_support:     "{{inviqa_group_ids.support}}"
+  inviqa_support: "{{inviqa_group_ids.support}}"
   inviqa_support_ooh: "{{inviqa_group_ids.support_ooh}}"
-  admin:              "{{inviqa_group_ids.pipeline_admin}}"
-  deploy:             "{{inviqa_group_ids.pipeline_deploy}}"
-  provision:          "{{inviqa_group_ids.pipeline_provision}}"
+  admin: "{{inviqa_group_ids.pipeline_admin}}"
+  deploy: "{{inviqa_group_ids.pipeline_deploy}}"
+  provision: "{{inviqa_group_ids.pipeline_provision}}"
 
 inviqa_support_groups:
   support:
