@@ -31,5 +31,4 @@ galaxy_info:
 
 dependencies:
   - ajsalminen.hosts
-  - Rackor3000.sudo
 ...
